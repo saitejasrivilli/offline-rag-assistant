@@ -1,21 +1,24 @@
 Offline RAG Assistant
 
-Private, offline Retrieval-Augmented Generation using Ollama + FAISS + Python, with a Streamlit UI(to make it available online as well if needed), automatic document ingestion, and local LLM inference.
-
-This project demonstrates how to build a privacy-first AI assistant that performs semantic search, retrieval, and grounded generation without ever sending data to the cloud.
+A private, fully offline Retrieval-Augmented Generation system built with Ollama, FAISS, and Python, featuring a Streamlit UI, intelligent chunking, and complete local inference.
+This project proves that powerful AI assistants can run entirely on your own machine without sending any data to the cloud.
 
 ⭐ Features
-🔐 100% Offline
+🔐 Completely Offline
 
-All embeddings generated locally using Ollama (nomic-embed-text)
+Local embeddings with nomic-embed-text
 
-All generation done with Llama 3.2 (2GB local)
+Local LLM generation with Llama 3.2
 
-No external APIs
+No API keys
 
-No internet required after model download
+No external network calls
 
-📄 Multi-format Document Support
+Your data never leaves your device
+
+📄 Multi-Format Document Support
+
+Supports:
 
 PDF
 
@@ -25,36 +28,76 @@ HTML
 
 TXT
 
-DOCX
+DOCX (optional add-on)
 
-🔎 Smart Retrieval
+🔎 Retrieval Components
 
-Overlapping chunking
+Chunking with overlap
+
+Sentence-aware boundaries
 
 Cosine similarity search
 
 FAISS vector index
 
-Dynamic thresholding
+Adjustable thresholds
 
-Parallel text cleaning
+Transparent chunk metadata
 
-🧠 Grounded Generation
+🧠 Answer Generation
 
-Context-aware answers
+Llama 3.2 for grounded responses
 
-Source citations
+Strict “no hallucination” prompt rules
 
-Guaranteed “don’t hallucinate” rules
+Cited answers with source tracking
 
-🖥️ Modern Streamlit UI
+Confidence scoring
+
+🖥️ Streamlit UI
 
 Chat interface
 
 File uploader
 
-Auto-reindex when new docs are uploaded
+Automatic re-indexing
 
 Retrieval visualization
 
-Confidence scoring
+Clean, minimal layout
+
+🚀 Quick Start
+1. Clone the repository
+git clone https://github.com/saitejasrivilli/offline-rag-assistant.git
+cd offline-rag-assistant
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Install Ollama
+
+Download from: https://ollama.com/download
+
+Verify:
+
+ollama --version
+
+4. Pull the models
+ollama pull llama3.2
+ollama pull nomic-embed-text
+
+5. Run the core RAG engine
+python3 rag.py
+
+6. Run the UI
+streamlit run app.py
+
+🧩 Project Structure
+offline-rag-assistant/
+│── app.py                # Streamlit UI
+│── rag.py                # Core offline RAG engine
+│── requirements.txt
+│── documents/            # User documents stored here
+│── vector_db/            # FAISS index + metadata
+│── README.md
+└── .gitignore
