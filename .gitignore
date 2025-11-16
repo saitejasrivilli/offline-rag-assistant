@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Local vector DB
+vector_db/
+
+# User documents
+documents/*
+
+# Streamlit cache
+.streamlit/
+
+# Mac files
+.DS_Store
